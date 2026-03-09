@@ -6,38 +6,64 @@
     <title>Landing Page Distillation — Example Outputs</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, system-ui, sans-serif; background: #0a0a0a; color: #e0e0e0; min-height: 100vh; padding: 3rem 1.5rem; }
+        :root {
+            --bg: #f5f5f5; --text: #1a1a1a; --heading: #000; --muted: #666; --faint: #999;
+            --card-bg: #fff; --card-border: #e0e0e0; --accent: #0969da;
+            --prompt-bg: #f0f0f0; --prompt-border: #ddd; --prompt-text: #555; --code-text: #1a1a1a;
+            --badge-red-bg: #fee2e2; --badge-red: #dc2626;
+            --badge-yellow-bg: #fef3c7; --badge-yellow: #d97706;
+            --badge-green-bg: #dcfce7; --badge-green: #16a34a;
+            --badge-blue-bg: #dbeafe; --badge-blue: #2563eb;
+            --badge-purple-bg: #f3e8ff; --badge-purple: #9333ea;
+        }
+        [data-theme="dark"] {
+            --bg: #0a0a0a; --text: #e0e0e0; --heading: #fff; --muted: #888; --faint: #555;
+            --card-bg: #161616; --card-border: #2a2a2a; --accent: #58a6ff;
+            --prompt-bg: #1a1a1a; --prompt-border: #2a2a2a; --prompt-text: #aaa; --code-text: #e0e0e0;
+            --badge-red-bg: #3b1219; --badge-red: #f87171;
+            --badge-yellow-bg: #3b2e10; --badge-yellow: #fbbf24;
+            --badge-green-bg: #0f2e1a; --badge-green: #4ade80;
+            --badge-blue-bg: #0f1f3b; --badge-blue: #60a5fa;
+            --badge-purple-bg: #2b1a3b; --badge-purple: #c084fc;
+        }
+        body { font-family: -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 3rem 1.5rem; transition: background 0.3s, color 0.3s; }
         .container { max-width: 900px; margin: 0 auto; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #fff; }
-        .subtitle { color: #888; margin-bottom: 2.5rem; font-size: 1.1rem; }
-        .subtitle a { color: #58a6ff; text-decoration: none; }
+        .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+        h1 { font-size: 2rem; color: var(--heading); }
+        .theme-toggle { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 0.4rem 0.75rem; cursor: pointer; font-size: 1.1rem; color: var(--text); transition: border-color 0.2s; }
+        .theme-toggle:hover { border-color: var(--accent); }
+        .subtitle { color: var(--muted); margin-bottom: 2.5rem; font-size: 1.1rem; }
+        .subtitle a { color: var(--accent); text-decoration: none; }
         .subtitle a:hover { text-decoration: underline; }
         .section { margin-bottom: 2rem; }
-        .section-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 0.75rem; }
+        .section-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.75rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
-        .card { background: #161616; border: 1px solid #2a2a2a; border-radius: 12px; padding: 1.25rem; transition: border-color 0.2s, transform 0.2s; text-decoration: none; color: inherit; display: block; }
-        .card:hover { border-color: #58a6ff; transform: translateY(-2px); }
-        .card-title { font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; }
-        .card-desc { font-size: 0.9rem; color: #888; line-height: 1.4; }
-        .card-meta { font-size: 0.8rem; color: #555; margin-top: 0.75rem; }
+        .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.25rem; transition: border-color 0.2s, transform 0.2s; text-decoration: none; color: inherit; display: block; }
+        .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .card-title { font-size: 1.1rem; color: var(--heading); margin-bottom: 0.4rem; }
+        .card-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.4; }
+        .card-meta { font-size: 0.8rem; color: var(--faint); margin-top: 0.75rem; }
         .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 6px; font-size: 0.75rem; font-weight: 600; margin-right: 0.4rem; }
-        .badge-red { background: #3b1219; color: #f87171; }
-        .badge-yellow { background: #3b2e10; color: #fbbf24; }
-        .badge-green { background: #0f2e1a; color: #4ade80; }
-        .badge-blue { background: #0f1f3b; color: #60a5fa; }
-        .badge-purple { background: #2b1a3b; color: #c084fc; }
-        .prompt { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 1rem; margin-bottom: 2.5rem; font-size: 0.9rem; color: #aaa; line-height: 1.5; }
-        .prompt code { color: #e0e0e0; }
+        .badge-red { background: var(--badge-red-bg); color: var(--badge-red); }
+        .badge-yellow { background: var(--badge-yellow-bg); color: var(--badge-yellow); }
+        .badge-green { background: var(--badge-green-bg); color: var(--badge-green); }
+        .badge-blue { background: var(--badge-blue-bg); color: var(--badge-blue); }
+        .badge-purple { background: var(--badge-purple-bg); color: var(--badge-purple); }
+        .prompt { background: var(--prompt-bg); border: 1px solid var(--prompt-border); border-radius: 8px; padding: 1rem; margin-bottom: 2.5rem; font-size: 0.9rem; color: var(--prompt-text); line-height: 1.5; }
+        .prompt code { color: var(--code-text); }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Landing Page Distillation</h1>
+        <div class="header">
+            <h1>Landing Page Distillation</h1>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">&#9790;</button>
+        </div>
         <p class="subtitle">Example outputs at each training stage — <a href="https://github.com/KalinRangelovRangelov/LLM-Landing-page-distillation">View project on GitHub</a></p>
 
         <div class="prompt">
-            All models received the same prompt:<br>
-            <code>"Create a landing page for a vintage vinyl record subscription box called CrateDigger"</code>
+            Baseline &amp; Small (50) prompt: <code>"Create a landing page for a pentagon clothing supplier"</code><br>
+            All others: <code>"Create a landing page for an aerospace defense company showcasing the F-16 fighter jet called SkyForge Defense"</code>
         </div>
 
         <div class="section">
@@ -95,11 +121,25 @@
                     <div class="card-desc">Claude output for comparison. What a large model produces.</div>
                 </a>
                 <a class="card" href="claude-fed/index.html">
-                    <div class="card-title"><span class="badge badge-purple">Claude</span> Guided prompt</div>
-                    <div class="card-desc">Claude with a more detailed, guided prompt.</div>
+                    <div class="card-title"><span class="badge badge-purple">Claude</span> Frontend Design skill</div>
+                    <div class="card-desc">Claude using the Frontend Design skill for higher design quality.</div>
                 </a>
             </div>
         </div>
     </div>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            document.querySelector('.theme-toggle').textContent = isDark ? '\u263E' : '\u2600';
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        }
+        const saved = localStorage.getItem('theme') || 'light';
+        if (saved === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.querySelector('.theme-toggle').textContent = '\u2600';
+        }
+    </script>
 </body>
 </html>

@@ -2,6 +2,8 @@
 
 A hands-on experiment in **knowledge distillation**: training a tiny 1.5B parameter model to generate landing pages by learning from a much larger model's outputs.
 
+**[View example outputs live](https://kalinrangelovrangelov.github.io/LLM-Landing-page-distillation/)**
+
 ## Inspiration
 
 This experiment was inspired by [Bijan Bowen](https://www.youtube.com/@BijanBowen)'s excellent video ["How DeepSeek 'Stole' Claude – Real Distillation Attack Demo"](https://www.youtube.com/watch?v=ase1Qmyo4Wg), which provides a great explanation of what LLM distillation is and how it works in practice.
@@ -68,16 +70,27 @@ Q8 and Q4 produce nearly identical results for this model size. FP16 is noticeab
 
 ### Example Outputs
 
-All generated from the same prompt: *"Create a landing page for a vintage vinyl record subscription box called CrateDigger"*
+**[View all examples live](https://kalinrangelovrangelov.github.io/LLM-Landing-page-distillation/)**
 
-| Stage | Output |
-|-------|--------|
-| [Baseline](results/examples/baseline/) | Untrained model — outputs generic/broken HTML |
-| [After 50 examples](results/examples/after50/) | Basic structure, simple styling |
-| [After 500 examples](results/examples/after500/) | Full landing page with sections, gradients, responsive design |
-| [After 500 (Q8)](results/examples/after500-q8/) | Quantized — nearly identical to FP16 |
-| [After 500 (Q4)](results/examples/after500-q4/) | Aggressively quantized — still good |
-| [Claude reference](results/examples/claude/) | What a frontier model produces |
+#### Baseline (untrained)
+Prompt: *"Create a landing page for a pentagon clothing supplier"*
+
+![Baseline](results/screenshots/baseline.png)
+
+#### After 50 training examples
+Prompt: *"Create a landing page for a pentagon clothing supplier"*
+
+![After 50 examples](results/screenshots/after50.png)
+
+#### After ~250 training iterations
+Prompt: *"Create a landing page for an aerospace defense company showcasing the F-16 fighter jet called SkyForge Defense"*
+
+![After 250 iterations](results/screenshots/after250.png)
+
+#### After 500 training examples (FP16)
+Prompt: *"Create a landing page for an aerospace defense company showcasing the F-16 fighter jet called SkyForge Defense"*
+
+![After 500 examples](results/screenshots/after500.png)
 
 ## Project Structure
 
