@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Distillation — Example Outputs</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, system-ui, sans-serif; background: #0a0a0a; color: #e0e0e0; min-height: 100vh; padding: 3rem 1.5rem; }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #fff; }
+        .subtitle { color: #888; margin-bottom: 2.5rem; font-size: 1.1rem; }
+        .subtitle a { color: #58a6ff; text-decoration: none; }
+        .subtitle a:hover { text-decoration: underline; }
+        .section { margin-bottom: 2rem; }
+        .section-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 0.75rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+        .card { background: #161616; border: 1px solid #2a2a2a; border-radius: 12px; padding: 1.25rem; transition: border-color 0.2s, transform 0.2s; text-decoration: none; color: inherit; display: block; }
+        .card:hover { border-color: #58a6ff; transform: translateY(-2px); }
+        .card-title { font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; }
+        .card-desc { font-size: 0.9rem; color: #888; line-height: 1.4; }
+        .card-meta { font-size: 0.8rem; color: #555; margin-top: 0.75rem; }
+        .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 6px; font-size: 0.75rem; font-weight: 600; margin-right: 0.4rem; }
+        .badge-red { background: #3b1219; color: #f87171; }
+        .badge-yellow { background: #3b2e10; color: #fbbf24; }
+        .badge-green { background: #0f2e1a; color: #4ade80; }
+        .badge-blue { background: #0f1f3b; color: #60a5fa; }
+        .badge-purple { background: #2b1a3b; color: #c084fc; }
+        .prompt { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 1rem; margin-bottom: 2.5rem; font-size: 0.9rem; color: #aaa; line-height: 1.5; }
+        .prompt code { color: #e0e0e0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Landing Page Distillation</h1>
+        <p class="subtitle">Example outputs at each training stage — <a href="https://github.com/KalinRangelovRangelov/LLM-Landing-page-distillation">View project on GitHub</a></p>
+
+        <div class="prompt">
+            All models received the same prompt:<br>
+            <code>"Create a landing page for a vintage vinyl record subscription box called CrateDigger"</code>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Training progression</div>
+            <div class="grid">
+                <a class="card" href="baseline/index.html">
+                    <div class="card-title"><span class="badge badge-red">Baseline</span> Untrained</div>
+                    <div class="card-desc">Qwen2.5-Coder 1.5B with no fine-tuning. Generic, often broken output.</div>
+                    <div class="card-meta">0 training examples</div>
+                </a>
+                <a class="card" href="after50/index.html">
+                    <div class="card-title"><span class="badge badge-yellow">Small</span> 50 examples</div>
+                    <div class="card-desc">Basic structure emerges. Simple styling, limited variety.</div>
+                    <div class="card-meta">200 training iterations</div>
+                </a>
+                <a class="card" href="after250/index.html">
+                    <div class="card-title"><span class="badge badge-yellow">Mid</span> ~250 iterations</div>
+                    <div class="card-desc">Improving structure and design. Mid-training checkpoint.</div>
+                    <div class="card-meta">250 training iterations</div>
+                </a>
+                <a class="card" href="after500/index.html">
+                    <div class="card-title"><span class="badge badge-green">Medium</span> 500 examples</div>
+                    <div class="card-desc">Full landing page with sections, gradients, responsive design.</div>
+                    <div class="card-meta">600 training iterations · FP16</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Quantization comparison (500 examples model)</div>
+            <div class="grid">
+                <a class="card" href="after500/index.html">
+                    <div class="card-title"><span class="badge badge-green">FP16</span> 3.1 GB</div>
+                    <div class="card-desc">Full 16-bit precision. Best quality.</div>
+                    <div class="card-meta">16.0 bits per weight</div>
+                </a>
+                <a class="card" href="after500-q8/index.html">
+                    <div class="card-title"><span class="badge badge-blue">Q8</span> 1.6 GB</div>
+                    <div class="card-desc">8-bit quantized. Nearly identical to FP16.</div>
+                    <div class="card-meta">8.5 bits per weight</div>
+                </a>
+                <a class="card" href="after500-q4/index.html">
+                    <div class="card-title"><span class="badge badge-blue">Q4</span> 986 MB</div>
+                    <div class="card-desc">4-bit quantized. Smallest size, still good.</div>
+                    <div class="card-meta">5.1 bits per weight</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Reference (frontier models)</div>
+            <div class="grid">
+                <a class="card" href="claude/index.html">
+                    <div class="card-title"><span class="badge badge-purple">Claude</span> Frontier</div>
+                    <div class="card-desc">Claude output for comparison. What a large model produces.</div>
+                </a>
+                <a class="card" href="claude-fed/index.html">
+                    <div class="card-title"><span class="badge badge-purple">Claude</span> Guided prompt</div>
+                    <div class="card-desc">Claude with a more detailed, guided prompt.</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
