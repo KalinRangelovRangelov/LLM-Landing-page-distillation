@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyForge Defense | Advanced Aerospace Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sky-blue: #00d9ff;
+            --dark-blue: #0a2a4a;
+            --light-blue: #e0f7ff;
+            --slate: #1e293b;
+            --slate-dark: #2d4161;
+            --slate-light: #f1f5f9;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, system-ui, sans-serif;
+        }
+        body {
+            background-color: var(--slate-light);
+            color: var(--slate-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        header {
+            padding: 2rem 0;
+            position: relative;
+            z-index: 10;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--sky-blue);
+            text-decoration: none;
+        }
+        .nav-links a {
+            color: var(--slate-dark);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--sky-blue);
+        }
+        .hero {
+            text-align: center;
+            padding: 5rem 0 3rem;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-blue);
+            line-height: 1.1;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #666;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--sky-blue);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 2px solid var(--sky-blue);
+            transition: all 0.3s;
+            position: relative;
+        }
+        .btn:hover {
+            background-color: transparent;
+            color: var(--sky-blue);
+            border-color: var(--sky-blue);
+        }
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--sky-blue);
+            border: 2px solid var(--sky-blue);
+            opacity: 0.1;
+            transform: rotate(45deg);
+            animation: pulse 4s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.1; }
+            100% { opacity: 0.5; }
+        }
+        .features {
+            padding: 5rem 0;
+            background-color: white;
+            border-radius: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 217, 255, 0.1);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-blue);
+        }
+        .features .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sky-blue);
+        }
+        .card i {
+            font-size: 2.5rem;
+            color: var(--sky-blue);
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .cta {
+            text-align: center;
+            padding: 3rem 0;
+            background-color: var(--dark-blue);
+            color: white;
+            border-radius: 2rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .cta:hover {
+            background-color: var(--sky-blue);
+            color: white;
+            transform: scale(1.05);
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: var(--sky-blue);
+        }
+        footer {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--slate-dark);
+        }
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .footer-links a {
+            color: var(--slate-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: var(--sky-blue);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .features {
+                padding: 3rem 0;
+            }
+            .features .card {
+                flex-direction: row;
+                margin-bottom: 2rem;
+            }
+            .social-icons {
+                display: none;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <nav>
+            <div class="logo">SkyForge Defense</div>
+            <div class="nav-links">
+                <a href="#">Services</a>
+                <a href="#">Systems</a>
+                <a href="#">Research</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Advanced Aerospace Solutions</h1>
+        <p>SkyForge Defense is a leading aerospace defense contractor specializing in the design, development, and deployment of next-generation combat aircraft. With a fleet of over 100 aircraft, each meticulously calibrated for precision and reliability, we deliver real-world results for clients operating in hostile environments.</p>
+        <a href="#" class="btn">Request Quote</a>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">Core Capabilities</h2>
+        <div class="container">
+            <div class="card">
+                <i class="fas fa-plane"></i>
+                <h3>Supercruise Technology</h3>
+                <p>Our proprietary scramjet engine technology allows for sustained flight at Mach 25, significantly improving maneuverability and range. Each SkyForge fighter is equipped with a dedicated flight control system to execute complex maneuvers with precision.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-lock"></i>
+                <h3>Unlimited Payload</h3>
+                <p>Our modular payload system allows for flexible deployment of sensors, weapons, and other equipment. Each aircraft can carry up to 20 tons of external payload, enabling rapid deployment in contested environments.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-plane"></i>
+                <h3>Autonomous Systems</h3>
+                <p>Each SkyForge fighter is equipped with an advanced sensor array and a redundant flight control system. In-flight data is processed in real-time, allowing for immediate response to threats and predictive analytics. The aircraft can also operate in autonomous mode, reducing the need for human intervention.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Join the Future of Aerospace Defense</h2>
+        <p>SkyForge Defense is a pioneer in the development of next-generation combat aircraft. With a fleet of over 100 operational aircraft, we deliver precision, reliability, and situational awareness. Contact us today to discuss your mission-critical requirements.</p>
+        <a href="#" class="btn">Join the Fleet</a>
+    </section>
+
+    <footer class="container">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Systems</a>
+            <a href="#">Research</a>
+            <a href="#">Contact</a>
+        </div>
+        <p class="copyright">&copy; 2023 SkyForge Defense. All rights reserved.</p>
+    </footer>
+</body>
+</html>

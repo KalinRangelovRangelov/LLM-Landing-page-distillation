@@ -1,0 +1,33 @@
+# Fused models (upload to Hugging Face)
+fused_*/
+fused_model_dq/
+
+# Adapter checkpoints (upload to Hugging Face)
+adapters*/
+
+# GGUF files
+*.gguf
+
+# Training data (upload to Hugging Face as dataset)
+data_sm/
+data_md/
+data_lg/
+data/
+data_landing/
+
+# Generation progress
+data_generation_progress.jsonl
+
+# Generated HTML previews
+results/pages/deepseek/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store
+
+# Modelfiles for Ollama (local-only)
+Modelfile-*
