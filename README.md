@@ -99,8 +99,8 @@ All generated from the same prompt: *"Create a landing page for a vintage vinyl 
 ```
 
 Models and datasets are on Hugging Face (too large for GitHub):
-- Models: *[link TBD]*
-- Dataset: *[link TBD]*
+- Models: [KalnRangelov/landing-page-gen-1.5b](https://huggingface.co/KalnRangelov/landing-page-gen-1.5b)
+- Dataset: [KalnRangelov/landing-page-training-data](https://huggingface.co/datasets/KalnRangelov/landing-page-training-data)
 
 ## Reproduce It Yourself
 
