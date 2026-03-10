@@ -106,16 +106,19 @@ Prompt: *"Create a landing page for an aerospace defense company showcasing the 
 ├── generate_with_deepseek.py   # Data generation via DeepSeek API
 ├── lora_config_sm.yaml         # Training config — 50 examples, 200 iters
 ├── lora_config_md.yaml         # Training config — 500 examples, 600 iters
+├── lora_config_lg.yaml         # Training config — 1000 examples, 1000 iters
 ├── baseline_test.py            # Run test prompts on untrained model
 ├── eval.py                     # Evaluate fine-tuned model
 ├── results/examples/           # HTML outputs at each stage
 │   ├── baseline/               # Untrained model output
 │   ├── after50/                # 50 training examples
+│   ├── after250/               # Mid-training checkpoint
 │   ├── after500/               # 500 training examples (FP16)
 │   ├── after500-q8/            # 500 examples, Q8 quantized
 │   ├── after500-q4/            # 500 examples, Q4 quantized
+│   ├── after1000/              # 1000 examples (diminishing returns)
 │   ├── claude/                 # Claude output for comparison
-│   └── claude-fed/             # Claude with guided prompt
+│   └── claude-fed/             # Claude with Frontend Design skill
 └── .gitignore
 ```
 
