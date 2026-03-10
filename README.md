@@ -55,6 +55,7 @@ We trained 3 models with different amounts of data to see how quantity affects q
 | Baseline (no training) | 0 | 0.693 | — |
 | `landing-sm` | 50 | 0.353 | 49% |
 | `landing-md` | 500 | 0.218 | 69% |
+| `landing-lg` | 1000 | 0.206 | 70% |
 
 ### Quantization Impact
 
@@ -91,6 +92,13 @@ Prompt: *"Create a landing page for an aerospace defense company showcasing the 
 Prompt: *"Create a landing page for an aerospace defense company showcasing the F-16 fighter jet called SkyForge Defense"*
 
 ![After 500 examples](results/screenshots/after500.png)
+
+#### After 1000 training examples (FP16)
+Prompt: *"Create a landing page for an aerospace defense company showcasing the F-16 fighter jet called SkyForge Defense"*
+
+![After 1000 examples](results/screenshots/after1000.png)
+
+> **Note:** The 1000-example model (val loss 0.206) shows minimal improvement over the 500-example model (val loss 0.218). This confirms the 1.5B model has reached its capacity ceiling — more data alone won't help. You'd need a larger model (3B, 7B) to benefit from additional training examples.
 
 ## Project Structure
 

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyForge Defense | The Future of Aerospace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --deep-blue: #0a2540;
+            --sky-blue: #1a5f9a;
+            --nebula: #e6f7ff;
+            --starlight: #8a9b68;
+            --shadow: rgba(10, 37, 64, 0.3);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, system-ui, sans-serif;
+        }
+        body {
+            background-color: var(--nebula);
+            color: var(--deep-blue);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            padding: 25px 0;
+            position: relative;
+            z-index: 10;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--sky-blue), var(--nebula));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: var(--deep-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--sky-blue);
+        }
+        .hero {
+            padding: 80px 0 120px;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--sky-blue), var(--nebula));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.1;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            opacity: 0.9;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--sky-blue), var(--nebula));
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            background: linear-gradient(90deg, var(--sky-blue), var(--nebula));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px var(--shadow);
+            transition: transform 0.4s, box-shadow 0.4s;
+            border-top: 8px solid var(--nebula);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px var(--shadow);
+        }
+        .card i {
+            font-size: 2.5rem;
+            color: var(--sky-blue);
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        footer {
+            padding: 50px 0 30px;
+            text-align: center;
+            border-top: 8px solid var(--nebula);
+            margin-top: 60px;
+        }
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--sky-blue), var(--nebula));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .social-links a {
+            color: var(--deep-blue);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--sky-blue);
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .nav-links { gap: 15px; }
+            .cards { grid-template-columns: 1fr; }
+            .social-links { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">SkyForge Defense</a>
+                <div class="nav-links">
+                    <a href="#">Pricing</a>
+                    <a href="#">Policies</a>
+                    <a href="#">Pilots</a>
+                    <a href="#">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Unmatched Precision, Unmatched Power</h1>
+            <p>SkyForge Defense delivers the world's most advanced aerospace defense systems. From stealth to precision, we deliver the capability to navigate, engage, and destroy at the highest level.</p>
+            <a href="#" class="cta-button">Request a Quote</a>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">The SkyForge Concept</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-plane"></i>
+                    <h3>Advanced Air Defense</h3>
+                    <p>Deploy our next-generation surface-to-air missile systems to intercept and neutralize incoming threats.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-shield-virus"></i>
+                    <h3>Autonomous Systems</h3>
+                    <p>Integrate our next-generation artificial intelligence platforms to track, track, and track with unprecedented accuracy.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-globe-asia"></i>
+                    <h3>Global Reach</h3>
+                    <p>Deploy our fleet of combat-ready fighters across the globe, with real-time situational awareness and predictive analytics.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-globe-europe"></i>
+                    <h3>Global Support</h3>
+                    <p>Access our global support network, including strategic intelligence, logistics, and maintenance.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-logo">SkyForge Defense</div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Add any custom JavaScript here
+    </script>
+</body>
+</html>
